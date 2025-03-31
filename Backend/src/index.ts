@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 import { request } from 'http';
 import mongoose from 'mongoose';
-
+import cors from 'cors';
 
 //ARCHIVOS ROUTES
 import employeeRoutes from './routes/employee.routes' ;
@@ -32,6 +32,7 @@ async function connectDb() {
 
 connectDb();
 
+app.use(cors());
 app.use('/api', employeeRoutes);
 app.use('/api', tipRoutes);
 
